@@ -7,21 +7,16 @@ string[] GenerateArrayString(int size)
     string[] array = new string[size];
     return array;
 }
-void FillAndPrintArray(string[] array)
+void FillArray(string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
         Console.WriteLine($"Type in values for index {i}");
        array[i] = Convert.ToString(Console.ReadLine()) ;
     }
-        Console.Write("[");
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
-        else Console.Write($"{array[i]}");
-    }
-    Console.Write("]");
+
 }
+
 string[] ArrayStringLessThan3(string[] array)
 {
     
@@ -55,7 +50,8 @@ void PrintArray(string[] array)
 Console.WriteLine("Type in size for your string array");
 int arraySize = Convert.ToInt32(Console.ReadLine());
 string[] arrayString = GenerateArrayString(arraySize);
-FillAndPrintArray(arrayString);
-string[] wordCount = ArrayStringLessThan3(arrayString);
+FillArray(arrayString);
+PrintArray(arrayString);
+string[] lessThan3 = ArrayStringLessThan3(arrayString);
 Console.Write(" -> ");
-PrintArray(wordCount);
+PrintArray(lessThan3);
