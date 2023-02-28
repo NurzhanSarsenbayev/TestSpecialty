@@ -22,18 +22,40 @@ void FillAndPrintArray(string[] array)
     }
     Console.Write("]");
 }
-int HowManyElements(string[] array)
+string[] ArrayStringLessThan3(string[] array)
 {
+    
     int count=0;
     for (int i = 0; i < array.Length; i++)
     {
-        if(array[i].Length<4 && array[i].Length>=0) count++;
-        Console.WriteLine($"count is {count}");
+        if(array[i].Length<4 && array[i].Length>0) count++;
     }
-    return count;
+    string[] arrayResult = new string[count];
+     int k =0;
+        for (int j = 0; j < array.Length; j++)
+        {
+             if(array[j].Length<4 && array[j].Length>0) {
+                arrayResult[k]=array[j] ;  
+             k++;
+             }      
+        }
+    return arrayResult;
 }
+void PrintArray(string[] array)
+{
+    Console.Write("[");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
+        else Console.Write($"{array[i]}");
+    }
+    Console.Write("]");
+}
+
 Console.WriteLine("Type in size for your string array");
 int arraySize = Convert.ToInt32(Console.ReadLine());
 string[] arrayString = GenerateArrayString(arraySize);
 FillAndPrintArray(arrayString);
-int wordCount = HowManyElements(arrayString);
+string[] wordCount = ArrayStringLessThan3(arrayString);
+Console.Write(" -> ");
+PrintArray(wordCount);
