@@ -17,21 +17,43 @@ void FillArray(string[] array)
 
 }
 
-string[] ArrayStringLessThan3(string[] array)
-{
+// string[] ArrayStringLessThan3(string[] array)
+// {
     
+//     int count=0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if(array[i].Length<4 && array[i].Length>0) count++;
+//     }
+//     string[] arrayResult = new string[count];
+//      int k =0;
+//         for (int j = 0; j < array.Length; j++)
+//         {
+//              if(array[j].Length<4 && array[j].Length>0) {
+//                 arrayResult[k]=array[j] ;  
+//              k++;
+//              }      
+//         }
+//     return arrayResult;
+// }
+int StringLessThan3(string[] array)
+{ 
     int count=0;
     for (int i = 0; i < array.Length; i++)
     {
         if(array[i].Length<4 && array[i].Length>0) count++;
     }
-    string[] arrayResult = new string[count];
-     int k =0;
-        for (int j = 0; j < array.Length; j++)
+    return count;
+}
+string[] ArrayStringLessThan3(string[] array, int size)
+{
+    string[] arrayResult = new string[size];
+     int j =0;
+        for (int i = 0; i < array.Length; i++)
         {
-             if(array[j].Length<4 && array[j].Length>0) {
-                arrayResult[k]=array[j] ;  
-             k++;
+             if(array[i].Length<4 && array[i].Length>0) {
+                arrayResult[j]=array[i] ;  
+             j++;
              }      
         }
     return arrayResult;
@@ -52,6 +74,8 @@ int arraySize = Convert.ToInt32(Console.ReadLine());
 string[] arrayString = GenerateArrayString(arraySize);
 FillArray(arrayString);
 PrintArray(arrayString);
-string[] lessThan3 = ArrayStringLessThan3(arrayString);
+// string[] lessThan3 = ArrayStringLessThan3(arrayString);
+int wordCount = StringLessThan3(arrayString);
+string[] lessThan3 = ArrayStringLessThan3(arrayString, wordCount);
 Console.Write(" -> ");
 PrintArray(lessThan3);
