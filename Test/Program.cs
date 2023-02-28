@@ -12,14 +12,14 @@ void FillArray(string[] array)
     for (int i = 0; i < array.Length; i++)
     {
         Console.WriteLine($"Type in values for index {i}");
-       array[i] = Convert.ToString(Console.ReadLine()) ;
+        array[i] = Convert.ToString(Console.ReadLine());
     }
 
 }
 
 // string[] ArrayStringLessThan3(string[] array)
 // {
-    
+
 //     int count=0;
 //     for (int i = 0; i < array.Length; i++)
 //     {
@@ -37,25 +37,26 @@ void FillArray(string[] array)
 //     return arrayResult;
 // }
 int StringLessThan3(string[] array)
-{ 
-    int count=0;
+{
+    int count = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if(array[i].Length<4 && array[i].Length>0) count++;
+        if (array[i].Length < 4 && array[i].Length > 0) count++;
     }
     return count;
 }
 string[] ArrayStringLessThan3(string[] array, int size)
 {
     string[] arrayResult = new string[size];
-     int j =0;
-        for (int i = 0; i < array.Length; i++)
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length < 4 && array[i].Length > 0)
         {
-             if(array[i].Length<4 && array[i].Length>0) {
-                arrayResult[j]=array[i] ;  
-             j++;
-             }      
+            arrayResult[j] = array[i];
+            j++;
         }
+    }
     return arrayResult;
 }
 void PrintArray(string[] array)
