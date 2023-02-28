@@ -22,7 +22,18 @@ void FillAndPrintArray(string[] array)
     }
     Console.Write("]");
 }
+int HowManyElements(string[] array)
+{
+    int count=0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if(array[i].Length<4 && array[i].Length>=0) count++;
+        Console.WriteLine($"count is {count}");
+    }
+    return count;
+}
 Console.WriteLine("Type in size for your string array");
 int arraySize = Convert.ToInt32(Console.ReadLine());
 string[] arrayString = GenerateArrayString(arraySize);
 FillAndPrintArray(arrayString);
+int wordCount = HowManyElements(arrayString);
