@@ -7,8 +7,22 @@ string[] GenerateArrayString(int size)
     string[] array = new string[size];
     return array;
 }
-
+void FillAndPrintArray(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.WriteLine($"Type in values for index {i}");
+       array[i] = Convert.ToString(Console.ReadLine()) ;
+    }
+        Console.Write("[");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
+        else Console.Write($"{array[i]}");
+    }
+    Console.Write("]");
+}
 Console.WriteLine("Type in size for your string array");
 int arraySize = Convert.ToInt32(Console.ReadLine());
 string[] arrayString = GenerateArrayString(arraySize);
-
+FillAndPrintArray(arrayString);
